@@ -1,12 +1,12 @@
 //1. Given two numbers, write a function that will return  the larger number
 
 function largerNum(num1, num2) {
-    // you code here
-
+  // you code here
+  return Math.max(num1, num2);
 }
 
 // 2. Given two numbers, amount correct and amount possible of a test, return the corresponding letter grade.
-// Example: 
+// Example:
 // input: 23, 25
 // output: "A"
 // Example:
@@ -14,12 +14,20 @@ function largerNum(num1, num2) {
 // output: "F"
 
 function testGrader(score, possible) {
-
+  if ((score / possible) * 100 >= 90) {
+    return "A";
+  } else if ((score / possible) * 100 >= 80) {
+    return "B";
+  } else if ((score / possible) * 100 >= 70) {
+    return "C";
+  } else if ((score / possible) * 100 >= 60) {
+    return "D";
+  } else if ((score / possible) * 100 <= 590) {
+    return "F";
+  }
 }
 
-
 // --------------------------------------------
-
 
 // 3. Given an integer that represents an hour in the day (1 - 24), write a function that returns "good morning", "good afternoon", "good evening", or "good night" based off of what hour it is. You'll need to think in military time.
 //Morning is between 5am and 11am (5 - 11)
@@ -29,34 +37,59 @@ function testGrader(score, possible) {
 //Make sure your ranges are inclusive
 
 function timeOfDayGreeting(hour) {
-    // you code below
-
+  // you code below
+  if (hour >= 22) {
+    return "good night";
+  } else if (hour >= 18) {
+    return "good evening";
+  } else if (hour >= 12) {
+    return "good afternoon";
+  } else if (hour >= 5) {
+    return "good morning";
+  } else {
+    return "good night";
+  }
 }
 
 //4. Write a function that will take in a number and return 'fever' if it indicates a fever (over 98.6) and additionally if the person should go to the hospital (at or above 103) 'fever go to hospital' (hint: try this with string concatenation), if it is under return 'no fever'
 function isFever(temp) {
-
+  if (temp <= 98.6) {
+    return "no fever";
+  } else if (temp < 102.9) {
+    return "fever";
+  } else {
+    return "fever go to hospital";
+  }
 }
-
 //5. Write a function that takes in a car object, if it is not moving then return true
 let myCar = {
-    make: "Ford",
-    model: "Mustang",
-    color: "Red",
-    moving: false
-}
+  make: "Ford",
+  model: "Mustang",
+  color: "Red",
+  moving: false
+};
 
 function isStopped(car) {
-
+  if (car.moving == false) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 //6. Write a function that returns true if a dish is yours and is dirty, or false if one of the statements is false
 
 let dish = {
-    yourDish: true,
-    isDirty: true
-}
+  yourDish: true,
+  isDirty: true
+};
 
 function washDish(dish) {
-
+  if (dish.yourDish == false) {
+    return false;
+  } else if (dish.isDirty == false) {
+    return false;
+  } else {
+    return true;
+  }
 }
